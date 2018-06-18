@@ -13,7 +13,7 @@ Participants: Ankan De, Jonna van Opstal, Kersten Clauss
 - [PumpIT (Earth Engine App)](https://kersten.users.earthengine.app/view/pumpit)
 - [source code](PumpIT.js)
 
-![PumpIT screenshot](PumpIT.PNG "PumpIT Screenshot")
+[![PumpIT screenshot](PumpIT.PNG "PumpIT Screenshot")](https://kersten.users.earthengine.app/view/pumpit)
 
 ## PumpIT Earth Engine App
 
