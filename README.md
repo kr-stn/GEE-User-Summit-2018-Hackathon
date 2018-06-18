@@ -10,6 +10,8 @@ Participants: Ankan De, Jonna van Opstal, Kersten Clauss
 - [Topic proposal](https://docs.google.com/document/d/1B4vNH9T8AbjEO7R_p9x-6JJ3DP9kJwKZCauDte9IBmI/edit)
 - [Presentation slide-deck](https://docs.google.com/presentation/d/1yARNu9KOWvyyH-r1pxUsfg_2x40piG_vnF7enbHGzP4/edit#slide=id.g3c5fd1ce4d_0_0)
 
+- [Hackathon work-doc](https://docs.google.com/document/d/1nu41FK3DkaUF3_OUbR7soO8qU5VCl0Aemc-uifr9i98/edit)
+
 - [PumpIT (Earth Engine App)](https://kersten.users.earthengine.app/view/pumpit)
 - [source code](PumpIT.js)
 
