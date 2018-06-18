@@ -1,6 +1,6 @@
 # Google Earth Engine User Summit 2018 Hackathon
 
-The 2018 Google Earth Engine User Summit featured a 5hr Hackathon ([topics](https://sites.google.com/earthoutreach.org/eeus2018/agenda/hackathon), where participants could hack together a quick proof-of-concept of ideas they brought to the conference using the Google Earth Engine platform.
+The 2018 Google Earth Engine User Summit featured a 5hr Hackathon ([topics](https://sites.google.com/earthoutreach.org/eeus2018/agenda/hackathon)), where participants could hack together a quick proof-of-concept of ideas they brought to the conference using the Google Earth Engine platform.
 
 
 This repository contains the outline of the Hackathon topic "Evaluating the Impact of Irrigation Investments on Agricultural Productivity" and the code for the resulting prototype "PumpIT - The Pump Impact Tool" for West Bengal, India.
