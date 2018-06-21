@@ -1,9 +1,9 @@
 /**
  * PumpIT - The Pump Irrigation Tool
- * 
+ *
  * result of the 2018 GEE User Summit Hackathon
  * created by: Ankan De, Jonna van Opstal, Kersten Clauss
- * 
+ *
  * live at: https://kersten.users.earthengine.app/view/pumpit
  */
 
@@ -64,17 +64,17 @@ var months=ee.List.sequence(1,12)
 
 var lt5_monthly =  ee.ImageCollection(months.map(function(m) {
   return lt5_ndvi.filter(ee.Filter.calendarRange({
-      start: m, 
+      start: m,
       field: 'month'
   })).mean().set('month', m)
 }));
 
 var lt8_monthly =  ee.ImageCollection(months.map(function(m) {
   return lt8_ndvi.filter(ee.Filter.calendarRange({
-      start: m, 
+      start: m,
       field: 'month'
   })).mean().set('month', m)
-})); 
+}));
 
 
 // display NDVI medians pre- and post- pump-install
@@ -108,14 +108,14 @@ rightMap.onClick(function(coords) {
   var point = ee.Geometry.Point(coords.lon, coords.lat);
   // var dot = ui.Map.Layer(point, {color: 'FF0000'});
   // rightMap.layers().set(1, dot);
-  
+
   // composite chart showing monthly averaves pre and post-install
   // extract array at point
   var lt5_comp_chart = ui.Chart.image.series(
     lt5_monthly,
     pumps.filterBounds(point.buffer(300)).first().geometry(),
     ee.Reducer.mean(), 200, "month")
-  
+
   lt5_comp_chart.setOptions({
     title: 'Monthly mean pre-install',
     vAxis: {title: 'NDVI'},
@@ -123,12 +123,12 @@ rightMap.onClick(function(coords) {
   });
 
   chartPanel.widgets().set(2, lt5_comp_chart);
-  
+
   var lt8_comp_chart = ui.Chart.image.series(
     lt8_monthly,
     pumps.filterBounds(point.buffer(300)).first().geometry(),
     ee.Reducer.mean(), 200, "month")
-    
+
   lt8_comp_chart.setOptions({
     title: 'Monthly mean post-install',
     vAxis: {title: 'NDVI'},
@@ -136,12 +136,12 @@ rightMap.onClick(function(coords) {
   });
 
   chartPanel.widgets().set(3, lt8_comp_chart);
-  
+
     // Create a pre-install chart.
   var lt5_chart = ui.Chart.image.series(lt5_ndvi,
     pumps.filterBounds(point.buffer(300)).first().geometry(),  // buffer the clicked point to intersect with pumps
     ee.Reducer.mean(), 200);
-    // print(pumps.filterBounds(point.buffer(50))) // debugging: print the selected 
+    // print(pumps.filterBounds(point.buffer(50))) // debugging: print the selected
   lt5_chart.setOptions({
     title: 'Pre-Install NDVI',
     vAxis: {title: 'VH'},
@@ -171,14 +171,14 @@ leftMap.onClick(function(coords) {
   var point = ee.Geometry.Point(coords.lon, coords.lat);
   // var dot = ui.Map.Layer(point, {color: 'FF0000'});
   // rightMap.layers().set(1, dot);
-  
+
   // composite chart showing monthly averaves pre and post-install
   // extract array at point
   var lt5_comp_chart = ui.Chart.image.series(
     lt5_monthly,
     pumps.filterBounds(point.buffer(300)).first().geometry(),
     ee.Reducer.mean(), 200, "month")
-  
+
   lt5_comp_chart.setOptions({
     title: 'Monthly mean pre-install',
     vAxis: {title: 'NDVI'},
@@ -186,12 +186,12 @@ leftMap.onClick(function(coords) {
   });
 
   chartPanel.widgets().set(2, lt5_comp_chart);
-  
+
   var lt8_comp_chart = ui.Chart.image.series(
     lt8_monthly,
     pumps.filterBounds(point.buffer(300)).first().geometry(),
     ee.Reducer.mean(), 200, "month")
-    
+
   lt8_comp_chart.setOptions({
     title: 'Monthly mean post-install',
     vAxis: {title: 'NDVI'},
@@ -199,12 +199,12 @@ leftMap.onClick(function(coords) {
   });
 
   chartPanel.widgets().set(3, lt8_comp_chart);
-  
+
     // Create a pre-install chart.
   var lt5_chart = ui.Chart.image.series(lt5_ndvi,
     pumps.filterBounds(point.buffer(300)).first().geometry(),  // buffer the clicked point to intersect with pumps
     ee.Reducer.mean(), 200);
-    // print(pumps.filterBounds(point.buffer(50))) // debugging: print the selected 
+    // print(pumps.filterBounds(point.buffer(50))) // debugging: print the selected
   lt5_chart.setOptions({
     title: 'Pre-Install NDVI',
     vAxis: {title: 'VH'},
@@ -246,3 +246,7 @@ ui.root.clear();
 // Add our split panel to the root panel.
 ui.root.add(splitPanel);
 ui.root.add(panel)
+
+// Set crosshair cursor for clicking on Map
+leftMap.style().set("cursor","crosshair");
+rightMap.style().set("cursor","crosshair");
